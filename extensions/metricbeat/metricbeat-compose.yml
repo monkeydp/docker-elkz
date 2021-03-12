@@ -41,6 +41,6 @@ services:
         target: /var/run/docker.sock
         read_only: true
     networks:
-      - elk
+      - elkz
     depends_on:
       - elasticsearch

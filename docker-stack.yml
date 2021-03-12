@@ -16,10 +16,10 @@ services:
       # Use single node discovery in order to disable production mode and avoid bootstrap checks.
       # see: https://www.elastic.co/guide/en/elasticsearch/reference/current/bootstrap-checks.html
       discovery.type: single-node
-      # Force publishing on the 'elk' overlay.
+      # Force publishing on the 'elkz' overlay.
       network.publish_host: _eth0_
     networks:
-      - elk
+      - elkz
     deploy:
       mode: replicated
       replicas: 1
@@ -38,7 +38,7 @@ services:
     environment:
       LS_JAVA_OPTS: "-Xmx256m -Xms256m"
     networks:
-      - elk
+      - elkz
     deploy:
       mode: replicated
       replicas: 1
@@ -51,7 +51,7 @@ services:
       - source: kibana_config
         target: /usr/share/kibana/config/kibana.yml
     networks:
-      - elk
+      - elkz
     deploy:
       mode: replicated
       replicas: 1
@@ -68,5 +68,5 @@ configs:
     file: ./kibana/config/kibana.yml
 
 networks:
-  elk:
+  elkz:
     driver: overlay
