@@ -69,6 +69,17 @@ services:
     depends_on:
       - elasticsearch
 
+  zombodb:
+    build:
+      context: zombodb/
+      args:
+        POSTGRES_VERSION: $POSTGRES_VERSION
+    ports:
+      - "5432:5432"
+    restart: always
+    networks:
+      - elkz
+
 networks:
   elkz:
     driver: bridge
