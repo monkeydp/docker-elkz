@@ -70,10 +70,10 @@ services:
       - elasticsearch
 
   zombodb:
+    # 保持容器持续运行
+    command: tail -f /dev/null
     build:
       context: zombodb/
-      args:
-        POSTGRES_VERSION: $POSTGRES_VERSION
     ports:
       - "5432:5432"
     restart: always
