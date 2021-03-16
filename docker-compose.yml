@@ -70,13 +70,12 @@ services:
       - elasticsearch
 
   zombodb:
-    # 保持容器持续运行
-    command: tail -f /dev/null
     build:
       context: zombodb/
     ports:
       - "5432:5432"
-    restart: always
+    environment:
+      POSTGRES_PASSWORD: postgres
     networks:
       - elkz
 
