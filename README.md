@@ -31,9 +31,9 @@ CREATE TABLE products (
 ### 1.3 插入数据
 
 ```sql
-INSERT INTO "public"."products" VALUES (1, '小夜灯', '{light}', '智能小夜灯', '一款智能小夜灯, 支持定时开关', 10, 2200, 'f', '2021-04-17');
-INSERT INTO "public"."products" VALUES (3, '灭火器', '{extinguishing}', '智能灭火器', '一款智能灭火器, 支持烟雾感应自动启动', 200, 1000, 'f', '2021-07-05');
-INSERT INTO "public"."products" VALUES (2, '灭蚊灯', '{light,mosquito}', '智能灭蚊灯', '一款智能灭蚊灯, 支持击杀统计', 30, 0, 't', '2021-11-23');
+INSERT INTO "public"."products" VALUES (1, '小夜灯', '{灯}', '智能小夜灯', '一款智能小夜灯, 支持定时开关', 10, 2200, 'f', '2021-04-17');
+INSERT INTO "public"."products" VALUES (3, '灭火器', '{灭火}', '智能灭火器', '一款智能灭火器, 支持烟雾感应自动启动', 200, 1000, 'f', '2021-07-05');
+INSERT INTO "public"."products" VALUES (2, '灭蚊灯', '{灯,灭蚊}', '智能灭蚊灯', '一款智能灭蚊灯, 支持击杀统计', 30, 0, 't', '2021-11-23');
 ```
 
 ### 1.4 创建索引
@@ -62,7 +62,7 @@ WHERE products ==> 'name:灭';
 
 -- 查询数组
 SELECT * FROM products 
-WHERE products ==> 'keywords:mosquito OR extinguishing';
+WHERE products ==> 'keywords:灭蚊 OR 灭火';
 
 -- 查询小于指定值
 SELECT * FROM products 
