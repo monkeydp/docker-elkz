@@ -7,5 +7,5 @@ FROM elasticsearch:$ELK_VERSION
 
 WORKDIR /usr/share/elasticsearch/plugins
 COPY plugins/elasticsearch-analysis-ik-7.11.1.zip analysis-ik.zip
-RUN unzip analysis-ik.zip
+RUN unzip analysis-ik.zip -d analysis-ik
 RUN rm analysis-ik.zip
