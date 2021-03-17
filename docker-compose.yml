@@ -11,9 +11,7 @@ services:
         source: ./elasticsearch/config/elasticsearch.yml
         target: /usr/share/elasticsearch/config/elasticsearch.yml
         read_only: true
-      - type: volume
-        source: elasticsearch
-        target: /usr/share/elasticsearch/data
+      - ./elasticsearch/data:/usr/share/elasticsearch/data
     ports:
       - "9200:9200"
       - "9300:9300"
@@ -72,7 +70,6 @@ services:
   zombodb:
     build:
       context: zombodb/
-    user: root
     ports:
       - "5432:5432"
     environment:
@@ -83,6 +80,3 @@ services:
 networks:
   elkz:
     driver: bridge
-
-volumes:
-  elasticsearch:
