@@ -62,7 +62,7 @@ WHERE products ==> 'name:灭';
 
 -- 查询数组
 SELECT * FROM products 
-WHERE products ==> 'keywords: mosquito OR extinguishing';
+WHERE products ==> 'keywords:mosquito OR extinguishing';
 
 -- 查询小于指定值
 SELECT * FROM products 
